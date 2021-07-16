@@ -1,0 +1,37 @@
+1-: create  ssh key
+ssh-keygen -t rsa -b 4096 -C "fzd224161@gmail.com"
+
+2. $ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCyqnn7ZlAJbzb/O9Y7kbqPLxAF+wbQpcnA6LXV1KrX3IZCkpsKejsgJycdmiWRMjpsrMO2XnsjXdiK1qczY/xTRTL157PhPuqfe01fROft1o1RIErSJy4PLKXfykOm9VwWtwR0UvhXcIkU46wAFu4kS+7SSGZOkgaeH+NKsWn9iknzDzTKChQGoJOmaguEOx4dlHHoP05IEJyXyapDFnw9WBKcxGjiGnEMTdjG7QhM0BBuYEVtE/EPQJjuFscXF/Fx6C5QQEcHFao0/rz777IgOutXJf2JDL78AtK45pZpoZMR4OIluHpyxJL0kTH5Sx1iGhuISfroUQczZ19UO1FzP3eIu3/wEr88OBiyZkjXb9qlB/3VGULSGE7latrTgFoB5NshZI40hORh3bKGPTFjVpRBIWMR8zBFEAt/m+MTvnSquoiC9MW8QuvdsA0gCKCpNdUg5Y2KnIwcP+BHH7SspVxM6zP/tiZVlLJB9xXe+yG9xLeHkUNmLElX3wqXtZ59jsWIN8lbpdFtnjXzDEDjRrmJ2N1x6mUvoYqXkZUx491TTZTo0qOc9e6mUxXmsIPr34G4bXu2OXIcG0HS0NFo1qU5+Ct8AFx50tl22RP+UVzLZSKGdMw32AIe4KRWhtGKbWa6VUf5KUEwjZ4ytAbo8PsStVQqz1vLvOWeRyabJQ== fzd224161@gmail.com
+
+3. add in git hub site.
+
+4.fzd22@shashank MINGW64 ~/.ssh
+$ pbcopy < ~/.ssh/id_rsa.pub
+bash: pbcopy: command not found
+
+fzd22@shashank MINGW64 ~/.ssh
+$ eval "$(ssh-agent -s)"
+Agent pid 356
+
+fzd22@shashank MINGW64 ~/.ssh
+$ ssh-add -K ~/.ssh/id_rsa
+Enter PIN for authenticator:
+
+fzd22@shashank MINGW64 ~/.ssh
+$ ssh-add ~/.ssh/id_rsa
+Identity added: /c/Users/fzd22/.ssh/id_rsa (fzd224161@gmail.com)
+
+fzd22@shashank MINGW64 ~/.ssh
+$ ssh -T git@github.com
+Hi 168412! You've successfully authenticated, but GitHub does not provide shell access.
+
+fzd22@shashank MINGW64 ~/.ssh
+$ git clone git@github.com:168412/shashank.git
+Cloning into 'shashank'...
+remote: Enumerating objects: 23, done.
+remote: Counting objects: 100% (23/23), done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 23 (delta 3), reused 20 (delta 3), pack-reused 0
+Receiving objects: 100% (23/23), done.
+Resolving deltas: 100% (3/3), done.
